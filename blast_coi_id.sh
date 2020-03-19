@@ -10,7 +10,7 @@ fasta_prefix=${FASTA#*2020/}
 seqtk sample $FASTA 40000 > $fasta_prefix.40000 #I'm subsampling the fasta file to have 40000 sequences. This is arbritary, can be changed. 
 blastn -query $fasta_prefix.40000 -db $database -evalue 1e-05 -out $fasta_prefix.40000.blastn
 wait
-perl $software/blastcov.pl $fasta_prefix.40000.blastn >  $fasta_prefix.40000.blastn.cov #parsing blast output. This is the same as blast format 8 output, with two extra colums that represent respectively the percentage of the query and subject in the blast match.
+perl $software/blastcov.pl $fasta_prefix.40000.blastn >  $fasta_prefix.40000.blastn.cov #parsing blast output. This is the same as blast output format 8, with two extra colums. They represent, respectively, the % of the query and subject sequence in the blast match.
 wait
 cat $fasta_prefix.40000.blastn.cov | awk '{ if ($3>=97 && $14>=97) print $0}' >  $fasta_prefix.40000.blastn.cov.97
 
