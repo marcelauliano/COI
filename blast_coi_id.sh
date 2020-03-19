@@ -1,6 +1,7 @@
 #! /bin/bash
 #Bash script to COI if fasta sequences. Under development
 
+export PATH=/software/ensembl/compara/ncbi-blast-2.2.30+/bin:${PATH}
 
 software="/software/team311/mu2/coi" #location of all scripts to run the COI-id pipeline
 database="/lustre/scratch116/vr/projects/vgp/user/mu2/coi-db/coi.updated.fa" #latest database for now
