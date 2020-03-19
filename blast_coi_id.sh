@@ -1,3 +1,4 @@
+#! /bin/bash
 #Bash script to COI if fasta sequences. Under development
 
 
