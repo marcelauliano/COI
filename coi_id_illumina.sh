@@ -11,7 +11,7 @@ new_species="$2" #Replace this with species name underscored. Ex: homo_sapiens.
 
 if [ "$1" == "-h" ]; then
         echo "Usage: <path/species.ccs.fasta>  <genus_species> "
-        echo -e "<path/species.ccs.fasta>  fasta file to be analyzed. Usually a gzip fasta file CCS PacBio"     
+        echo -e "<path/species.R2.fastq.gz>  fasta file to be analyzed. Usually a gzip fasta file CCS PacBio"     
         echo -e "<genus_species> New species to be added to the blast database separated by a underscore. Ex: homo_sapiens"     
         exit 0
 fi
