@@ -59,8 +59,7 @@ if [[ $1  = *ccs* ]]; then
 
         blastn -query $fasta_prefix.20000 -db $database_prefix.new_seqs -evalue 1e-05 -out $fasta_prefix.20000.blastn
         sleep 2
-        perl $software/blastcov.pl $fasta_prefix.20000.blastn >  $fasta_prefix.20000.blastn.cov #parsing blast output. This is the same as blast output format 8, with two extra colums. They
- represent, respectively, the % of the query and subject sequence in the blast match.
+        perl $software/blastcov.pl $fasta_prefix.20000.blastn >  $fasta_prefix.20000.blastn.cov #parsing blast output. This is the same as blast output format 8, with two extra colums. They represent, respectively, the % of the query and subject sequence in the blast match.
         sleep 2
         cat $fasta_prefix.20000.blastn.cov | awk '{ if ($3>=97 && $14>=97) print $0}' >  $fasta_prefix.20000.blastn.cov.97
         rm out newseqs $fasta_prefix.20000.blastn $fasta_prefix.20000.blastn.cov $database_prefix.new_seqs* $fasta_prefix.20000 $database_prefix.newseqs
