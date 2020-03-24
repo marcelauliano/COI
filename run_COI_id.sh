@@ -97,8 +97,7 @@ else
         sleep 2
         lambda2 searchn -q $fasta_prefix.20000.fasta -i  $database_prefix.new_seqs.lambda --percent-identity 99 -n 50 -o $fasta_prefix.20000.output.m0
         sleep 2
-        perl $software/blastcov.pl $fasta_prefix.20000.output.m0 > $fasta_prefix.20000.output.m0.cov #parsing blast output. This is the same as blast output format 8, with two extra colums.
- They represent, respectively, the % of the query and subject sequence in the blast match.
+        perl $software/blastcov.pl $fasta_prefix.20000.output.m0 > $fasta_prefix.20000.output.m0.cov #parsing blast output. This is the same as blast output format 8, with two extra colums. They represent, respectively, the % of the query and subject sequence in the blast match.
         sleep 2
         cat $fasta_prefix.20000.output.m0.cov | awk '{ if ($3>=97 && $14>=15) print $0}' > $fasta_prefix.20000.output.m0.cov.97
         rm out newseqs $fasta_prefix.20000 $fasta_prefix.20000.fasta $database_prefix.new_seqs.fasta $database_prefix.newseqs $fasta_prefix.20000.output.m0 $fasta_prefix.20000.output.m0.cov
